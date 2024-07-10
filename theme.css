@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 /*
     Theme name: DarkEmber
     Description: A dark theme with ember accents for Obsidian
@@ -8,7 +10,63 @@
     
     License: MIT (see LICENSE file in the repository)
 */
-@charset "UTF-8";
+
+/* @settings
+name: DarkEmber
+id:  DarkEmber-settings
+settings:
+  -
+    id: dkem-head-decoration
+    title: header(#1 - #5) decoration settings
+    title.ja: 見出し(#1～#5)装飾設定
+    type: heading
+    level: 1
+    collapsed: true
+  -
+    id: dkem-is-decoration
+    title: is header decoration(true / false)
+    title.ja: 見出しの装飾のオン／オフ
+    type: class-toggle
+    default: true
+  - 
+    id: color-scheme
+    title: Color Scheme
+    type: class-select
+    allowEmpty: false
+    default: theme-dark-orange
+    options:
+      - 
+        label: Orange
+        value: theme-dark-orange
+      - 
+        label: Blue
+        value: theme-dark-blue
+      - 
+        label: Green
+        value: theme-dark-green
+      - 
+        label: Purple
+        value: theme-dark-purple
+  - 
+    id: light-color-scheme
+    title: Light Color Scheme
+    type: class-select
+    allowEmpty: false
+    default: theme-light-orange
+    options:
+      - 
+        label: Orange
+        value: theme-light-orange
+      - 
+        label: Blue
+        value: theme-light-blue
+      - 
+        label: Green
+        value: theme-light-green
+      - 
+        label: Purple
+        value: theme-light-purple
+    */
 :root {
   --font-size-xs: 0.78em;
   --font-size-sm: 0.875em;
@@ -45,10 +103,8 @@
   --font-size-h6: 1em;
 
   /* about Font-face */
-  --override-font: "Migu 1M";
   --base-font-face: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial,
     "Hiragino Kaku Gothic ProN", "Hiragino Sans", "メイリオ", Meiryo, sans-serif;
-  --override-code-font: "Migu 1M";
   --code-font-face: Consolas, "Courier New", Courier, monospace;
 
   --gutter-width: 50px;
@@ -57,8 +113,8 @@
   --monochrome-color: hsl(13, 100%, 50%);
 }
 
-:root,
-.theme-dark {
+/* オレンジ系（既存） */
+.theme-dark.theme-dark-orange {
   --main-node: #ffbe00;
   --main-node-hover: #fe6a26;
   --tags: #f1ee26;
@@ -85,9 +141,116 @@
   --background-modifier-error: #cf2d2d;
   --background-modifier-error-hover: #a72020;
   --text-highlight-bg: #e9b35f;
+  --h1-gradient: #d72, #810, #e52, #c12;
+  --h2-gradient: #f82, #922, #222;
+  --h2-icon-color: #da6212;
+  --h3-h6-icon-color: #ff6a6a;
 }
-:root,
-.theme-light {
+
+/* ブルー系 */
+.theme-dark.theme-dark-blue {
+  --main-node: #4a90e2;
+  --main-node-hover: #2c78d4;
+  --tags: #61dafb;
+  --external-link: #82d2e8;
+  --external-link-hidden: rgba(131, 197, 235, 0.3);
+  --main-background: rgb(36, 36, 36);
+  --secondary-background: rgb(27, 27, 27);
+  --secondary-background-low-opacity: rgba(27, 27, 27, 0.329);
+  --attachments: rgb(105, 188, 235);
+  --accent-1: #3498db;
+  --accent-2: #2980b9;
+  --accent-3: #1abc9c;
+  --accent-4: #080e0c;
+  --accent-5: #2ecc71;
+  --accent-6: #27ae60;
+  --text-normal: rgb(201, 201, 201);
+  --text-accent: var(--main-node);
+  --text-accent-hover: var(--main-node-hover);
+  --background-primary: var(--main-background);
+  --background-secondary: var(--secondary-background);
+  --interactive-accent: var(--main-node);
+  --interactive-accent-hover: var(--main-node-hover);
+  --text-on-accent: white;
+  --background-modifier-error: #e74c3c;
+  --background-modifier-error-hover: #c0392b;
+  --text-highlight-bg: #3498db;
+  --h1-gradient: #4a90e2, #0a2c57, #3498db, #2980b9;
+  --h2-gradient: #61dafb, #3498db, #222;
+  --h2-icon-color: #4a90e2;
+  --h3-h6-icon-color: #61dafb;
+}
+
+/* グリーン系 */
+.theme-dark.theme-dark-green {
+  --main-node: #2ecc71;
+  --main-node-hover: #27ae60;
+  --tags: #a0e73c;
+  --external-link: #82d2e8;
+  --external-link-hidden: rgba(131, 197, 235, 0.3);
+  --main-background: rgb(36, 36, 36);
+  --secondary-background: rgb(27, 27, 27);
+  --secondary-background-low-opacity: rgba(27, 27, 27, 0.329);
+  --attachments: rgb(105, 188, 235);
+  --accent-1: #1abc9c;
+  --accent-2: #16a085;
+  --accent-3: #3498db;
+  --accent-4: #2980b9;
+  --accent-5: #f1c40f;
+  --accent-6: #f39c12;
+  --text-normal: rgb(201, 201, 201);
+  --text-accent: var(--main-node);
+  --text-accent-hover: var(--main-node-hover);
+  --background-primary: var(--main-background);
+  --background-secondary: var(--secondary-background);
+  --interactive-accent: var(--main-node);
+  --interactive-accent-hover: var(--main-node-hover);
+  --text-on-accent: black;
+  --background-modifier-error: #e74c3c;
+  --background-modifier-error-hover: #c0392b;
+  --text-highlight-bg: #2ecc71;
+  --h1-gradient: #2ecc71, #083119, #1abc9c, #16a085;
+  --h2-gradient: #a0e73c, #2ecc71, #222;
+  --h2-icon-color: #2ecc71;
+  --h3-h6-icon-color: #a0e73c;
+}
+
+/* パープル系 */
+.theme-dark.theme-dark-purple {
+  --main-node: #9b59b6;
+  --main-node-hover: #8e44ad;
+  --tags: #d2a8ff;
+  --external-link: #82d2e8;
+  --external-link-hidden: rgba(131, 197, 235, 0.3);
+  --main-background: rgb(36, 36, 36);
+  --secondary-background: rgb(27, 27, 27);
+  --secondary-background-low-opacity: rgba(27, 27, 27, 0.329);
+  --attachments: rgb(105, 188, 235);
+  --accent-1: #8e44ad;
+  --accent-2: #9b59b6;
+  --accent-3: #3498db;
+  --accent-4: #2980b9;
+  --accent-5: #1abc9c;
+  --accent-6: #16a085;
+  --text-normal: rgb(201, 201, 201);
+  --text-accent: var(--main-node);
+  --text-accent-hover: var(--main-node-hover);
+  --background-primary: var(--main-background);
+  --background-secondary: var(--secondary-background);
+  --interactive-accent: var(--main-node);
+  --interactive-accent-hover: var(--main-node-hover);
+  --text-on-accent: white;
+  --background-modifier-error: #e74c3c;
+  --background-modifier-error-hover: #c0392b;
+  --text-highlight-bg: #9b59b6;
+  --h1-gradient: #9b59b6, #8e44ad, #d2a8ff, #8e44ad;
+  --h2-gradient: #d2a8ff, #9b59b6, #222;
+  --h2-icon-color: #9b59b6;
+  --h3-h6-icon-color: #d2a8ff;
+}
+
+/* オレンジ系（既存） */
+.theme-light.theme-light-orange {
   --main-background: #eaeaea;
   --secondary-background: #d9d9d9;
   --secondary-background-low-opacity: #e2e2e254;
@@ -109,10 +272,111 @@
   --background-modifier-error: #cf2d2d;
   --background-modifier-error-hover: #a72020;
   --text-highlight-bg: #e9b35f;
+  --h1-gradient: #e06d0f, #f05006, #cf1f08, #d64545;
+  --h2-gradient: #f05006, #e06d0f, #eee;
+  --h2-icon-color: #e06d0f;
+  --h3-h6-icon-color: #f05006;
+}
+
+/* ブルー系 */
+.theme-light.theme-light-blue {
+  --main-background: #f0f4f8;
+  --secondary-background: #e1e8f0;
+  --secondary-background-low-opacity: #e1e8f054;
+  --main-node: #2c78d4;
+  --accent-1: #3498db;
+  --accent-2: #2980b9;
+  --accent-3: #1abc9c;
+  --accent-4: #16a085;
+  --accent-5: #2ecc71;
+  --accent-6: #27ae60;
+  --external-link: #2980b9;
+  --external-link-hidden: #2980b999;
+  --text-accent: var(--main-node);
+  --text-accent-hover: var(--main-node-hover);
+  --background-primary: var(--main-background);
+  --background-secondary: var(--secondary-background);
+  --interactive-accent: var(--main-node);
+  --interactive-accent-hover: var(--main-node-hover);
+  --background-modifier-error: #e74c3c;
+  --background-modifier-error-hover: #c0392b;
+  --text-highlight-bg: #3498db;
+  --h1-gradient: #2c78d4, #3498db, #2980b9, #1abc9c;
+  --h2-gradient: #3498db, #2c78d4, #eee;
+  --h2-icon-color: #2c78d4;
+  --h3-h6-icon-color: #3498db;
+}
+
+/* グリーン系 */
+.theme-light.theme-light-green {
+  --main-background: #f0f8f0;
+  --secondary-background: #e1f0e1;
+  --secondary-background-low-opacity: #e1f0e154;
+  --main-node: #27ae60;
+  --accent-1: #2ecc71;
+  --accent-2: #16a085;
+  --accent-3: #3498db;
+  --accent-4: #2980b9;
+  --accent-5: #f1c40f;
+  --accent-6: #f39c12;
+  --external-link: #16a085;
+  --external-link-hidden: #16a08599;
+  --text-accent: var(--main-node);
+  --text-accent-hover: var(--main-node-hover);
+  --background-primary: var(--main-background);
+  --background-secondary: var(--secondary-background);
+  --interactive-accent: var(--main-node);
+  --interactive-accent-hover: var(--main-node-hover);
+  --background-modifier-error: #e74c3c;
+  --background-modifier-error-hover: #c0392b;
+  --text-highlight-bg: #2ecc71;
+  --h1-gradient: #27ae60, #2ecc71, #16a085, #3498db;
+  --h2-gradient: #2ecc71, #27ae60, #eee;
+  --h2-icon-color: #27ae60;
+  --h3-h6-icon-color: #2ecc71;
+}
+
+/* パープル系 */
+.theme-light.theme-light-purple {
+  --main-background: #f8f0f8;
+  --secondary-background: #f0e1f0;
+  --secondary-background-low-opacity: #f0e1f054;
+  --main-node: #8e44ad;
+  --accent-1: #9b59b6;
+  --accent-2: #8e44ad;
+  --accent-3: #3498db;
+  --accent-4: #2980b9;
+  --accent-5: #1abc9c;
+  --accent-6: #16a085;
+  --external-link: #8e44ad;
+  --external-link-hidden: #8e44ad99;
+  --text-accent: var(--main-node);
+  --text-accent-hover: var(--main-node-hover);
+  --background-primary: var(--main-background);
+  --background-secondary: var(--secondary-background);
+  --interactive-accent: var(--main-node);
+  --interactive-accent-hover: var(--main-node-hover);
+  --background-modifier-error: #e74c3c;
+  --background-modifier-error-hover: #c0392b;
+  --text-highlight-bg: #9b59b6;
+  --h1-gradient: #8e44ad, #9b59b6, #8e44ad, #3498db;
+  --h2-gradient: #9b59b6, #8e44ad, #eee;
+  --h2-icon-color: #8e44ad;
+  --h3-h6-icon-color: #9b59b6;
+}
+
+.theme-dark {
+  --code-block-fg: #928b78;
+  --code-block-bg: #303030;
+}
+
+.theme-light {
+  --code-block-fg: #161616;
+  --code-block-bg: #e4e3e0;
 }
 
 * {
-  font-family: var(--override-font, --font-family-editor, --base-font-face);
+  font-family: var(--text-normal, var(--base-font-face));
   -webkit-font-feature-settings: "liga" on, "calt" on;
   font-feature-settings: "liga" on, "calt" on;
   -webkit-font-smoothing: antialiased;
@@ -252,7 +516,6 @@ span.cm-formatting.cm-url + span.cm-url {
 .cm-header-1,
 .HyperMD-header-1,
 .markdown-preview-view h1 {
-  font-family: var(--override-font, --font-family-editor);
   font-weight: 1000;
   font-size: var(--font-size-h1);
   color: var(--accent-1);
@@ -265,7 +528,6 @@ span.cm-formatting.cm-url + span.cm-url {
 .cm-header-2,
 .HyperMD-header-2,
 .markdown-preview-view h2 {
-  font-family: var(--override-font, --font-family-editor);
   font-weight: 1000;
   font-size: var(--font-size-h2);
   color: var(--accent-2);
@@ -277,7 +539,6 @@ span.cm-formatting.cm-url + span.cm-url {
 .cm-header-3,
 .HyperMD-header-3,
 .markdown-preview-view h3 {
-  font-family: var(--override-font, --font-family-editor);
   font-weight: 1000;
   font-size: var(--font-size-h3);
   color: var(--accent-3);
@@ -289,7 +550,6 @@ span.cm-formatting.cm-url + span.cm-url {
 .cm-header-4,
 .HyperMD-header-4,
 .markdown-preview-view h4 {
-  font-family: var(--override-font, --font-family-editor);
   font-weight: 500;
   font-size: var(--font-size-h4);
   color: var(--accent-4);
@@ -301,7 +561,6 @@ span.cm-formatting.cm-url + span.cm-url {
 .cm-header-5,
 .HyperMD-header-5,
 .markdown-preview-view h5 {
-  font-family: var(--override-font, --font-family-editor);
   font-weight: 500;
   font-size: var(--font-size-h5);
   color: var(--accent-5);
@@ -313,7 +572,6 @@ span.cm-formatting.cm-url + span.cm-url {
 .cm-header-6,
 .HyperMD-header-6,
 .markdown-preview-view h6 {
-  font-family: var(--override-font, --font-family-editor);
   font-weight: 500;
   font-size: var(--font-size-h6);
   color: var(--accent-6);
@@ -378,6 +636,104 @@ span.cm-formatting.cm-url + span.cm-url {
   left: -19.5px;
   top: 9px;
   position: absolute;
+}
+
+/* Header Decoration */
+.dkem-is-decoration {
+  /* Common styles for headers */
+  .HyperMD-header-1,
+  .markdown-preview-view h1,
+  .HyperMD-header-2,
+  .markdown-preview-view h2,
+  .HyperMD-header-3,
+  .markdown-preview-view h3,
+  .HyperMD-header-4,
+  .markdown-preview-view h4,
+  .HyperMD-header-5,
+  .markdown-preview-view h5 {
+    margin-left: -8px !important;
+  }
+
+  /* Styles for h1 */
+  .HyperMD-header-1,
+  .markdown-preview-view h1 {
+    border-bottom: 5px solid;
+    border-image: linear-gradient(to right, var(--h1-gradient)) 1/0 0 5px;
+    margin-left: -20px;
+  }
+
+  /* Styles for h2 */
+  .HyperMD-header-2,
+  .markdown-preview-view h2 {
+    border-bottom: 3px solid;
+    border-image: linear-gradient(to right, var(--h2-gradient)) 1/0px 0 3px;
+    margin-left: -15px;
+
+    &::before {
+      font-family: "Font Awesome 5 Free";
+      content: "\f0c8";
+      font-weight: 900;
+      margin-right: 9px;
+      font-size: 0.8em;
+      position: relative;
+      bottom: 2px;
+      color: var(--h2-icon-color);
+    }
+  }
+
+  /* Styles for h3 */
+  .HyperMD-header-3,
+  .markdown-preview-view h3 {
+    &::before {
+      font-family: "Font Awesome 5 Free";
+      content: "\f0da";
+      font-weight: 900;
+      margin-right: 8px;
+      font-size: 1em;
+      color: var(--h3-h6-icon-color);
+    }
+  }
+
+  /* Styles for h4 */
+  .HyperMD-header-4,
+  .markdown-preview-view h4 {
+    &::before {
+      font-family: "Font Awesome 5 Free";
+      content: "\f00c";
+      font-weight: 900;
+      margin-left: 6px;
+      margin-right: 6px;
+      font-size: 0.7em;
+      color: var(--h3-h6-icon-color);
+    }
+  }
+
+  /* Styles for h5 */
+  .HyperMD-header-5,
+  .markdown-preview-view h5 {
+    &::before {
+      font-family: "Font Awesome 5 Free";
+      content: "\2a";
+      font-weight: 900;
+      margin-left: 12px;
+      margin-right: 6px;
+      font-size: 1em;
+      color: var(--h3-h6-icon-color);
+    }
+  }
+
+  /* Styles for h6 */
+  .HyperMD-header-6,
+  .markdown-preview-view h6 {
+    &::before {
+      content: "-";
+      font-weight: 900;
+      margin-left: 12px;
+      margin-right: 6px;
+      font-size: 1em;
+      color: var(--h3-h6-icon-color);
+    }
+  }
 }
 
 /*-- is active line, display # markup --*/
@@ -650,7 +1006,7 @@ span.cm-formatting.cm-url + span.cm-url {
 .cm-s-obsidian div.HyperMD-codeblock-end-bg,
 .cm-s-obsidian div.HyperMD-codeblock-bg,
 .cm-s-obsidian span.cm-inline-code {
-  background: var(--secondary-background);
+  background-color: var(--code-block-bg);
   border-color: #000;
 }
 .cm-s-obsidian pre.HyperMD-codeblock-begin {
@@ -661,15 +1017,16 @@ span.cm-formatting.cm-url + span.cm-url {
 }
 .cm-s-obsidian .HyperMD-codeblock,
 .cm-s-obsidian .cm-inline-code {
-  color: #928b78;
-  background-color: #303030 !important;
+  color: var(--code-block-fg);
+  background-color: var(--code-block-bg);
   width: 95%;
 }
+
 .markdown-preview-view pre {
-  color: #928b78;
-  background-color: #303030 !important;
+  color: var(--code-block-fg);
+  background-color: var(--code-block-bg);
   width: 95%;
-  font-family: var(--code-font-face, --override-code-font) !important;
+  font-family: var(--font-monospace, var(--code-font-face));
 }
 
 .markdown-preview-view pre button.copy-code-button {
@@ -1162,105 +1519,81 @@ img[alt~="border-large"] {
   border: var(--size-2-5) solid var(--main-node);
 }
 
-/* table周り */
-table {
-  width: 95% !important;
-  min-width: 750px;
-}
-table thead tr {
-  background: #77777766 !important;
-}
-table tbody tr:nth-child(odd) {
-  background: #29292955 !important;
-}
-table tbody tr:nth-child(even) {
-  background: #18181855 !important;
-}
-table:not(.calendar) tbody tr:hover {
-  background: #77777766 !important;
-}
-.table-lr table tbody tr:nth-last-child(1) {
-  background-color: color-mix(in srgb, var(--main-node), transparent 20%);
-}
-.table-lr table tbody tr:nth-last-child(1) td {
-  padding: 1rem;
-  font-weight: 700;
-}
-.table-lc table tr td:nth-last-child(1) {
-  background-color: color-mix(in srgb, var(--main-node), transparent 20%);
-  font-weight: 700;
-}
-.table-lc table tr th:nth-last-child(1) {
-  background-color: color-mix(in srgb, var(--main-node), transparent 20%);
-  font-weight: 700;
-}
-.table-fc table tr td:nth-child(1) {
-  background-color: color-mix(in srgb, var(--main-node), transparent 20%);
-  font-weight: 700;
-}
-.table-fc table tr th:nth-child(1) {
-  background-color: color-mix(in srgb, var(--main-node), transparent 20%);
-  font-weight: 700;
-}
-.table-alt table tr td:nth-child(even) {
-  background-color: color-mix(in srgb, var(--main-node), transparent 20%);
-  font-weight: 700;
-}
-.table-alt table tr th:nth-child(even) {
-  background-color: color-mix(in srgb, var(--main-node), transparent 20%);
-  font-weight: 700;
-}
-.theme-light table tbody tr:hover {
-  background: white;
+/* カレンダー部分の調整 */
+#calendar-container div {
+  margin-top: 1px;
+  margin-bottom: 1px;
 }
 #calendar-container table {
   min-width: 100%;
+  font-size: large;
 }
 
-.markdown-preview-view.matrix table tr {
-  display: flex;
+#calendar-container table tr td {
+  padding-top: 0;
+  padding-bottom: 0;
 }
-.markdown-preview-view.matrix table tr th,
-.markdown-preview-view.matrix table tr td {
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+
+#calendar-container table td div {
+  padding-bottom: 0px;
 }
-.markdown-preview-view.matrix table tr th > *,
-.markdown-preview-view.matrix table tr td > * {
+
+/* テーブル全体のスタイル */
+table {
   width: 100%;
-  height: 100%;
-  background-color: var(--main-background);
+  border-collapse: collapse;
+  margin: 1em 0;
+  min-width: 750px;
+  font-size: 0.9em;
 }
-.markdown-preview-view.matrix table tr td {
-  background-color: var(--main-background);
+
+/* テーブルヘッダー */
+thead tr {
+  background-color: color-mix(
+    in srgb,
+    var(--interactive-accent) 20%,
+    var(--secondary-background)
+  ) !important;
+  opacity: 0.9;
+  color: var(--text-on-accent);
+  text-align: left;
 }
-.markdown-preview-view.matrix table tr:nth-child(1) td:nth-child(1) > * {
-  border-color: var(--accent-1);
+
+/* テーブルセル */
+th,
+td {
+  padding: 12px 15px;
 }
-.markdown-preview-view.matrix table tr:nth-child(1) td:nth-child(1):hover {
-  background-color: var(--accent-1);
+
+/* テーブル本体の行 */
+tbody tr {
+  border-bottom: 1px solid var(--background-modifier-border);
 }
-.markdown-preview-view.matrix table tr:nth-child(1) td:nth-child(2) > * {
-  border-color: var(--accent-2);
+
+/* 奇数行と偶数行の背景色 */
+tbody tr:nth-of-type(even) {
+  background-color: var(--background-secondary);
 }
-.markdown-preview-view.matrix table tr:nth-child(1) td:nth-child(2):hover {
-  background-color: var(--accent-2);
+
+tbody tr:nth-of-type(odd) {
+  background-color: var(--background-primary);
 }
-.markdown-preview-view.matrix table tr:nth-child(2) td:nth-child(1) > * {
-  border-color: var(--accent-4);
+
+/* ホバー時の行のスタイル */
+tbody tr:hover {
+  background-color: var(--background-modifier-hover);
 }
-.markdown-preview-view.matrix table tr:nth-child(2) td:nth-child(1):hover {
-  background-color: var(--accent-4);
+
+/* ダークテーマ用 */
+.theme-dark table {
+  --table-border-color: rgba(255, 255, 255, 0.1);
 }
-.markdown-preview-view.matrix table tr:nth-child(2) td:nth-child(2) > * {
-  border-color: var(--accent-5);
+
+/* ライトテーマ用 */
+.theme-light table {
+  --table-border-color: rgba(0, 0, 0, 0.1);
 }
-.markdown-preview-view.matrix table tr:nth-child(2) td:nth-child(2):hover {
-  background-color: var(--accent-5);
-}
+
 .MJX-TEX,
 .cm-s-obsidian .cm-math {
   color: #7bd5f6;
@@ -1334,10 +1667,6 @@ img.isc-icon.isc-luc {
   --statblock-width: 850px;
   width: var(--statblock-width);
   margin-left: calc(-1 * (var(--statblock-width) - var(--max-width-text)) / 2) !important;
-}
-.theme-dark .statblock-content {
-  border-color: #000 !important;
-  box-shadow: 0 0 1.5em #00000080 !important;
 }
 
 /* external-link decoration */
