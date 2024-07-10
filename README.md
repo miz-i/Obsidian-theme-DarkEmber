@@ -1,5 +1,7 @@
 # Obsidian-theme-DarkEmber
 
+[![.github/workflows/release.yml](https://github.com/miz-i/Obsidian-theme-DarkEmber/actions/workflows/release.yml/badge.svg)](https://github.com/miz-i/Obsidian-theme-DarkEmber/actions/workflows/release.yml)
+
 [English](README.md) | [日本語](README.ja.md)
 
 ## Overview
@@ -18,6 +20,6 @@
 
 ## Update History
 
-### v 1.0.0 2024/07/11 (Thu)
+### v 1.0.1 2024/07/11 (Thu)
 
 - Initial release
