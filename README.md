@@ -18,6 +18,6 @@
 
 ## Update History
 
-### v 1.0 2024/07/11 (Thu)
+### v 1.0.0 2024/07/11 (Thu)
 
 - Initial release
