@@ -20,6 +20,11 @@
 
 ## Update History
 
+### v 1.1.0 2024/07/14 (Sun)
+
+- Removed dependency on external fonts and improved to SVG-based icons.
+- Added top and bottom margins to H5 and H6 headings for better spacing.
+
 ### v 1.0.3 2024/07/11 (Thu)
 
 - Initial release
