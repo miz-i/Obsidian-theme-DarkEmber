@@ -20,6 +20,11 @@
 
 ## Update History
 
+### v 1.1.1 2024/07/18 (Thu)
+
+- Adjusted calendar margins
+- Minor modifications to Style Settings configuration
+
 ### v 1.1.0 2024/07/14 (Sun)
 
 - Removed dependency on external fonts and improved to SVG-based icons.
