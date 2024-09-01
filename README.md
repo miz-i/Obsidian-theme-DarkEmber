@@ -20,6 +20,10 @@
 
 ## Update History
 
+### v 1.1.2 2024/09/02 (Mon)
+
+- Remove margins above and below the table.
+
 ### v 1.1.1 2024/07/18 (Thu)
 
 - Adjusted calendar margins

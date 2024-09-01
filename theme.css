@@ -1567,7 +1567,7 @@ img[alt~="border-large"] {
 table {
   width: 100%;
   border-collapse: collapse;
-  margin: 1em 0;
+  margin: 0 0;
   min-width: 750px;
   font-size: 0.9em;
 }
