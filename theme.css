@@ -443,11 +443,6 @@ body {
 .markdown-source-view.mod-cm6.is-readable-line-width:not(.is-rtl) .cm-contentContainer .cm-gutters {
   width: 50px;
 }
-.markdown-preview-view.is-readable-line-width .markdown-preview-sizer .cm-content,
-.markdown-source-view.mod-cm6.is-readable-line-width:not(.is-rtl) .cm-contentContainer .cm-content {
-  display: flex;
-  flex-direction: column;
-}
 
 .markdown-preview-view.is-readable-line-width .markdown-preview-sizer > *:not(iframe),
 .markdown-preview-view.is-readable-line-width .markdown-preview-sizer .frontmatter-container,
@@ -523,9 +518,6 @@ span.cm-formatting.cm-url + span.cm-url {
   font-weight: 1000;
   font-size: var(--font-size-h1);
   color: var(--accent-1);
-  /* 以下、HyperMD で有効 */
-  margin-top: 1.5em;
-  margin-bottom: 1em;
   left: -20px;
 }
 
@@ -535,9 +527,7 @@ span.cm-formatting.cm-url + span.cm-url {
   font-weight: 1000;
   font-size: var(--font-size-h2);
   color: var(--accent-2);
-  margin-top: 1em;
-  margin-bottom: 0.5em;
-  left: -15px; /* HyperMD で有効 */
+  left: -15px;
 }
 
 .cm-header-3,
@@ -547,8 +537,6 @@ span.cm-formatting.cm-url + span.cm-url {
   font-size: var(--font-size-h3);
   color: var(--accent-3);
   left: -8px;
-  margin-top: 1em;
-  margin-bottom: 0.5em;
 }
 
 .cm-header-4,
@@ -558,8 +546,6 @@ span.cm-formatting.cm-url + span.cm-url {
   font-size: var(--font-size-h4);
   color: var(--accent-4);
   left: -8px;
-  margin-top: 1em;
-  margin-bottom: 0.5em;
 }
 
 .cm-header-5,
@@ -570,9 +556,6 @@ span.cm-formatting.cm-url + span.cm-url {
   color: var(--accent-5);
   left: -8px;
   line-height: 2em;
-  margin: 0;
-  margin-top: 0.5em;
-  margin-bottom: 0.4em;
 }
 
 .cm-header-6,
@@ -581,19 +564,53 @@ span.cm-formatting.cm-url + span.cm-url {
   font-weight: 500;
   font-size: var(--font-size-h6);
   color: var(--accent-6);
-  margin: 0;
-  margin-top: 0.4em;
-  margin-bottom: 0.3em;
+}
+
+/* 閲覧モードの見出し余白 */
+.markdown-preview-view h1 {
+  margin-top: 1.5em;
+  margin-bottom: 1em;
+}
+.markdown-preview-view h2,
+.markdown-preview-view h3,
+.markdown-preview-view h4 {
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+}
+.markdown-preview-view h5 {
+  margin: 0.5em 0 0.4em;
+}
+.markdown-preview-view h6 {
+  margin: 0.4em 0 0.3em;
+}
+
+/*
+ * 編集モードの見出し余白
+ * CodeMirror 6 は行の縦 margin を高さ計測に含めない。
+ * margin を使うとカーソル移動 (j/k) が複数行ずれるため、必ず padding で付ける。
+ */
+.markdown-source-view.mod-cm6 .cm-line.HyperMD-header {
+  padding-bottom: 0.5em;
+}
+.markdown-source-view.mod-cm6 .cm-line.HyperMD-header-1 {
+  padding-top: 1.5em;
+}
+.markdown-source-view.mod-cm6 .cm-line.HyperMD-header-2,
+.markdown-source-view.mod-cm6 .cm-line.HyperMD-header-3,
+.markdown-source-view.mod-cm6 .cm-line.HyperMD-header-4 {
+  padding-top: 1em;
+}
+.markdown-source-view.mod-cm6 .cm-line.HyperMD-header-5 {
+  padding-top: 0.5em;
+}
+.markdown-source-view.mod-cm6 .cm-line.HyperMD-header-6 {
+  padding-top: 0.4em;
 }
 
 /* 編集モードでの 見出しの# */
 .cm-formatting-header {
   color: var(--text-faint);
   font-size: 0.6em;
-}
-
-.cm-s-obsidian .cm-line.HyperMD-header {
-  margin-bottom: 0.5em !important;
 }
 
 /*-- display H1-h6 in gutter--*/
@@ -665,9 +682,19 @@ span.cm-formatting.cm-url + span.cm-url {
   /* Styles for h1 */
   .HyperMD-header-1,
   .markdown-preview-view h1 {
+    margin-left: -20px;
+  }
+  .markdown-preview-view h1 {
     border-bottom: 5px solid;
     border-image: linear-gradient(to right, var(--h1-gradient)) 1/0 0 5px;
-    margin-left: -20px;
+  }
+  /* 編集モードは下線を背景で描き、下余白 (padding) の上に置く */
+  .markdown-source-view.mod-cm6 .cm-line.HyperMD-header-1 {
+    padding-bottom: calc(0.5em + 5px);
+    background-image: linear-gradient(to right, var(--h1-gradient));
+    background-repeat: no-repeat;
+    background-size: 100% 5px;
+    background-position: left 0 bottom 0.5em;
   }
 
   /* Common styles for all headers */
@@ -689,10 +716,19 @@ span.cm-formatting.cm-url + span.cm-url {
   }
 
   /* Styles for h2 */
-  .HyperMD-header-2,
   .markdown-preview-view h2 {
     border-bottom: 3px solid;
     border-image: linear-gradient(to right, var(--h2-gradient)) 1/0px 0 3px;
+  }
+  .markdown-source-view.mod-cm6 .cm-line.HyperMD-header-2 {
+    padding-bottom: calc(0.5em + 3px);
+    background-image: linear-gradient(to right, var(--h2-gradient));
+    background-repeat: no-repeat;
+    background-size: 100% 3px;
+    background-position: left 0 bottom 0.5em;
+  }
+  .HyperMD-header-2,
+  .markdown-preview-view h2 {
     margin-left: -15px;
 
     &::before {
@@ -1426,12 +1462,17 @@ li::marker,
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote span.cm-quote {
   color: var(--main-text);
 }
+/* 連続する引用行をつなげる (縦 margin は使わない) */
+.markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote:has(+ .HyperMD-quote) {
+  border-bottom: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
 .markdown-source-view.mod-cm6.is-live-preview .HyperMD-quote + .HyperMD-quote {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   border-top: 0;
-  margin-top: -3px !important;
-  background-color: var(--background-primary);
+  padding-top: calc(1em - 3px);
 }
 .kanban ul {
   display: flex;
