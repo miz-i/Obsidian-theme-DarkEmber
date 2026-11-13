@@ -20,6 +20,10 @@
 
 ## Update History
 
+### v 1.1.3 2026/11/14 (Sat)
+
+- Fixed the cursor jumping multiple lines in Live Preview.
+
 ### v 1.1.2 2024/09/02 (Mon)
 
 - Remove margins above and below the table.
